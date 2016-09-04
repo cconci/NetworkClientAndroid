@@ -17,13 +17,13 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:weightSum="1">
+        android:weightSum="10">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.06">
+            android:layout_weight="0.10">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -36,17 +36,18 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="number|text"
                 android:ems="10"
-                android:id="@+id/editText"
-                android:layout_weight="1" />
+                android:id="@+id/editTextIpAddress"
+                android:layout_weight="1"
+                android:text="216.58.220.132" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_weight="0.09">
+            android:layout_height="wrap_content"
+            android:layout_weight="0.10">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -61,16 +62,31 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText2"
-                android:layout_weight="1" />
+                android:id="@+id/editTextPort"
+                android:layout_weight="1"
+                android:text="80" />
         </LinearLayout>
 
-        <Button
-            android:layout_width="206dp"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Connect"
-            android:id="@+id/buttonConnect"
-            android:layout_gravity="center_horizontal" />
+            android:layout_weight="0.10">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Connect"
+                android:id="@+id/buttonConnect"
+                android:onClick="pressButtonConnect" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disconnect"
+                android:id="@+id/button2"
+                android:onClick="pressButtonDisconnect" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -78,17 +94,45 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Comms"
             android:id="@+id/textView3"
-            android:layout_weight="0.03" />
+            android:layout_weight="0.10" />
 
-        <EditText
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:id="@+id/editText3"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.34"
-            android:background="#9bc3dcf4" />
+            android:layout_height="76dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/editTextRXData"
+                android:layout_gravity="center_horizontal"
+                android:background="#9bc3dcf4"
+                android:enabled="true"
+                android:clickable="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.10">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editTextTxData"
+                android:layout_weight="1"
+                android:text="Test" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TX"
+                android:id="@+id/button"
+                android:onClick="pressButtonSendText" />
+        </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>
